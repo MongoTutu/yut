@@ -1,0 +1,74 @@
+.ar_text{
+	text-align: center;
+	font-size: 24px;
+	color: #445769;
+	letter-spacing: 1px;
+}
+.ar_m{
+	overflow: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.ar_ma{
+	float: right;
+	margin-left: 20px;
+	font-size: 14px;
+	color: #999;
+}
+.ar_nr{
+	font-size: 16px;
+	color: #666;
+	line-height: 26px;
+	letter-spacing: 1px;
+	text-indent:2em;
+	margin-bottom: 8px;
+}
+.ar_talk{
+	margin-top: 20px;
+}
+.ar_tt{
+	background-color: #566473;
+	font-size: 18px;
+	color: #fff;
+	padding: 25px 50px;
+}
+
+.ar_tl{
+	padding: 35px 50px; 
+}
+.ar_tlb{
+	margin-top: 10px;
+	border-bottom: 1px solid #d9d9d9;
+	overflow: auto;
+}
+.ar_span{
+	overflow: auto;
+}
+.ar_span span{
+	float: right;
+	color: #999;
+	margin-top: 5px;
+}
+.ar_tlu{
+	font-size: 16px;
+	display: block;
+	color: #1caaea;
+	float: left;
+}
+.ar_tlp{
+	font-size: 16px;
+	color: #666;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.ar_tlan{
+	overflow: auto;
+}
+.ar_tlans{
+	font-size: 14px;
+	display: block;
+	float: right;
+	margin-left: 20px;
+	color: #999;
+	margin-bottom: 10px;
+}

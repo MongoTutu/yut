@@ -1,0 +1,73 @@
+<include file="header" />
+
+	<div class="W ac_style">
+		<div class="kuang ac_list">
+			<div class="">
+				<p class="ar_text">{$info.title}</p>
+				<div class="ar_m">
+					<span class="ar_ma">发布人：{$info.uid|getUsername}</span><span class="ar_ma">时间：{$info.time|friendlyDate}</span>
+				</div>
+				<div class="cnt_z">
+					{$info.content}
+				</div>
+			</div>
+		</div>
+		<div class="ar_talk kuang">
+			<div class="ar_tt">
+				<span>评论</span>
+			</div>
+			<div class="ar_tl">
+				<div id="acdc_z">
+				<volist id="cmt" name="cmt">
+				<div class="ar_tlb">
+					<div class="ar_span">
+						<a class="ar_tlu">{$cmt.uid|getUsername}</a><span>{$cmt.time|friendlyDate}</span>
+					</div>
+					<p class="ar_tlp">{$cmt.comment}</p>
+				</div>
+				</volist>
+				</div>
+				<div class="artc_z">
+					<input type="text" placeholder="评论" name="comment" id="comment">
+					<a data="{$info.id}" id="cmtpst" href="javascript:void(0);">提交</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="foot">
+		<div class="W f_top">
+			<a href="" class="f_a">关于我们</a>
+			<a href="" class="f_a">发展经历</a>
+			<a href="" class="f_a">友情链接</a>
+			<a href="" class="f_a">意见反馈</a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/jq/jq.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#cmtpst').click(function(){
+		var cmt = $('#comment').val();
+		var aid = $(this).attr('data');
+		$.ajax({
+			url : '{:U("commentPost")}',
+			type : 'post',
+			dataType : 'json',
+			data : {comment:cmt,aid:aid},
+			success : function(res){
+				if(res.status==2){
+					alert('你没有登录，就不要评论了');
+				}else{
+					var str = '';
+					if(res.status!=0){
+						str += '<div class="ar_tlb"><div class="ar_span"><a class="ar_tlu">'+res.username+'</a><span>'+res.time+'</span></div><p class="ar_tlp">'+res.comment+'</p></div>';
+						$('#acdc_z').append(str);
+						$('#comment').val('');
+					}
+				}
+			}
+		});
+	});
+})
+</script>
+</html>

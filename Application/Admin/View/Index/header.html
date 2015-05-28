@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yu</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/picstyle.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/baguetteBox.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/artistyle.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/actstyle.css">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/uploadify/uploadify.css">
+</head>
+<body>
+	<div id="head">
+		<div class="W">
+			<div class="logo">
+				<a href="" class="lg">昱昱</a>
+			</div>
+			<div class="menu">
+				<a href="{:U('index')}" class="m_tip" <if condition="$nav eq 1">style="color:#fff;"</if>>添加资讯</a>
+				<a href="{:U('addpic')}" class="m_tip" <if condition="$nav eq 2">style="color:#fff;"</if>>秀秀墙</a>
+				<a href="{:U('article')}" class="m_tip" <if condition="$nav eq 3">style="color:#fff;"</if>>资讯</a>
+				
+				<a href="{:U('talk')}" class="m_tip" <if condition="$nav eq 4">style="color:#fff;"</if>>讨论区</a>
+			</div>
+			<if condition="!$_SESSION['id']">
+			<div class="mes">
+				<a href="{:U('log')}" class="m_im">登录</a>
+				<a href="{:U('register')}" class="m_im">注册</a>
+			</div>
+			<else />
+			<div class="mes">
+				<a class="m_im" href="javascript:void(0);">{$_SESSION['username']}</a>
+				<a class="m_im" href="{:U('Home/Index/logout')}">退出</a>
+			</div>
+			</if>
+		</div>
+	</div>

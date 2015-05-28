@@ -1,0 +1,77 @@
+<include file="header" />
+	
+	<div id="article" class="wraper">
+		<div class="addZX">
+			<form id="j_information" action="{:U('addZXPost')}" method="post">
+				<div class="addZXDV">
+					<input type="text" class="txt" placeholder="标题" name="title" id="title">
+				</div>
+				<div class="addZXDV">
+					<input type="text" class="txt" placeholder="添加标签 (多个标签请用,号分开)" name="tags" id="tags">
+				</div>
+				<div class="addZXDV">
+					<textarea name="content" id="content" style="width:99%;height:400px;visibility:hidden;"></textarea>
+				</div>
+				<div class="addZXDV">
+					<select name="classify" id="classify" style="width:180px;height:32px;padding-left:5px;">
+						<option value="1">找资金</option>
+						<option value="2">找项目</option>
+						<option value="3">找人才</option>
+						<option value="4">找政策</option>
+						<option value="5">找支持</option>
+					</select>
+				</div>
+				<div class="addZXDV">
+					<input type="text" class="txt" placeholder="定时发布" name="time" id="time">
+				</div>
+				<div class="addZXDV">
+					<input type="submit" class="submitBtn" value="发布">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.datetimepicker.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/kindeditor/lang/zh_CN.js"></script>
+<script>
+var editor;
+KindEditor.ready(function(K) {
+	editor = K.create('textarea[name="content"]', {
+		resizeType : 1,
+		allowPreviewEmoticons : false,
+		allowImageUpload : false,
+		items : [
+			'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+			'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+			'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+	});
+});
+
+$(function(){
+	$('#j_information').submit(function(){
+		var ta = $('#title').val();
+		var tb = $('#tags').val();
+		var td = $('#content').val();
+		var til = getStrLength(ta);
+		if(til>29){alert('Title can not be too long!');return false;}
+		if(!ta){alert('Can not be empty!');return false;}
+		if(!tb){alert('Can not be empty!');return false;}
+		// if(!td){alert('Can not be empty!');return false;}
+	});
+
+	function getStrLength(str){
+		var realLength = 0, len = str.length, charCode = -1;
+	    for (var i = 0; i < len; i++) {
+	        charCode = str.charCodeAt(i);
+	        if (charCode >= 0 && charCode <= 128) realLength += 1;
+	        else realLength += 2;
+	    }
+	    return realLength;
+	}
+
+	$('#time').datetimepicker();
+})
+</script>
+</html>

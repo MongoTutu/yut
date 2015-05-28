@@ -1,0 +1,25 @@
+<include file="header" />
+
+	<div class="W ac_style">
+		<div class="kuang ac_list">
+			<volist id="art" name="art">
+			<div class="ac_border">
+				<a href="{:U('articleDetail','id='.$art['id'])}" class="ac_t">{$art.title}</a><span class="ac_span">{$art.time|friendlyDate}</span>
+			</div>
+			</volist>
+			<div class="ac_pag">
+				<a href="" class="ac_p">上一页</a><a href="" class="ac_p">下一页</a>
+			</div>
+		</div>
+		
+	</div>
+	<div id="foot">
+		<div class="W f_top">
+			<a href="" class="f_a">关于我们</a>
+			<a href="" class="f_a">发展经历</a>
+			<a href="" class="f_a">友情链接</a>
+			<a href="" class="f_a">意见反馈</a>
+		</div>
+	</div>
+</body>
+</html>

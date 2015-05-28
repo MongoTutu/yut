@@ -1,0 +1,58 @@
+<include file="header" />
+
+	<div class="W c_main">
+		<div id="l_main">
+			<div class="kuang">
+				<p class="k_p">热门相册</p>
+				<div class="l_img">
+					<div class="slider">
+	  					<ul>
+	  						<volist id="lb" name="lb">
+	    					<li><a href="javascript:void(0);" target="_blank"><img src="__PUBLIC__/Uploads/{$lb.savename}"></a></li>
+		    				</volist>
+	  					</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="kuang">
+				<p class="k_p">最新资讯</p>
+				<div class="h_active">
+					<volist id="art" name="art">
+					<a href="{:U('articleDetail','id='.$art['id'])}" class="ha_t">{$art.title}</a>
+					</volist>
+					<a href="{:U('article')}" class="h_m">查看更多>></a>
+				</div>
+			</div>
+		</div>
+		<div id="r_main">
+			<div class="rm_border rm_log">
+				<p class="rm_p">
+					昱昱小博客系统。<br>前端DIV+CSS+JS+JQUERY<br>后台MYSQL+THINKPHP
+				</p>
+				<if condition="!$_SESSION['id']">
+				<a href="{:U('register')}" class="d_zc">立即注册</a><a href="{:U('log')}" class="d_dl">用户登录</a>
+				</if>
+			</div>
+			<div class="rm_border">
+				<p>最新讨论</p>
+			</div>
+		</div>
+	</div>
+	<div id="foot">
+		<div class="W f_top">
+			<a href="" class="f_a">关于我们</a>
+			<a href="" class="f_a">发展经历</a>
+			<a href="" class="f_a">友情链接</a>
+			<a href="" class="f_a">意见反馈</a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/jq/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/jq/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/jq/jq.js"></script>
+<script type="text/javascript" src="__PUBLIC__/jq/yxMobileSlider.js"></script>
+  <script>
+    $(".slider").yxMobileSlider({width:678,height:382,during:5000})
+  </script>
+</html>

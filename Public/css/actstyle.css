@@ -1,0 +1,41 @@
+.ac_style{
+	margin-top: 40px;
+}
+.ac_list{
+	padding: 45px 50px;
+}
+.ac_border{
+	border-bottom: 1px dashed #E9E9E9;
+	overflow: auto;
+}
+.ac_t{
+	display: block;
+	color: #445769;
+	font-size: 16px;
+	margin-top: 10px;
+	padding-bottom:8px;
+	letter-spacing: 1px;
+	float: left;
+}
+.ac_span{
+	float: right;
+	font-size: 14px;
+	margin-top: 12px;
+	color: #999;
+}
+.ac_t:hover{
+	color: #a38911;
+}
+.ac_pag{
+	text-align: center;
+	margin-top: 20px;
+}
+.ac_p{
+	display: inline-block;
+	margin-right: 30px;
+	font-size: 16px;
+	color: #1caaea;
+}
+.ac_p:hover{
+	text-decoration: underline;
+	}

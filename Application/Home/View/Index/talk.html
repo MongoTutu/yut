@@ -1,0 +1,55 @@
+<include file="header" />
+
+	<div class="W ac_style">
+		<div class="talk_z">
+			<textarea id="talkbox_z"></textarea>
+			<div><a href="javascript:void(0);" class="subBtn_z">发布</a></div>
+		</div>
+		
+		<div class="talklist_z">
+		<volist id="talk" name="talk">
+		<div class="ar_tlb">
+			<div class="ar_span">
+				<a class="ar_tlu">{$talk.uid|getUsername}</a><span>{$talk.time|friendlyDate}</span>
+			</div>
+			<p class="ar_tlp">{$talk.content}</p>
+		</div>
+		</volist>
+		</div>
+
+	</div>
+	
+	<div id="foot">
+		<div class="W f_top">
+			<a href="" class="f_a">关于我们</a>
+			<a href="" class="f_a">发展经历</a>
+			<a href="" class="f_a">友情链接</a>
+			<a href="" class="f_a">意见反馈</a>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="__PUBLIC__/jq/jq.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('.subBtn_z').click(function(){
+		var v = $('#talkbox_z').val();
+		if(!v){ return false; }
+		$.ajax({
+			url : '{:U("addTalk")}',
+			type : 'post',
+			dataType : 'json',
+			data : {content:v},
+			success : function(res){
+				if(res.status == 1){
+					var str = '<div class="ar_tlb"><div class="ar_span"><a class="ar_tlu">'+res.dt.username+'</a><span>'+res.dt.time+'</span></div><p class="ar_tlp">'+res.dt.content+'</p></div>';
+					$('.talklist_z').prepend(str);
+					$('#talkbox_z').val('');
+				}else{
+					alert(res.data);
+				}
+			}
+		});
+	});
+})
+</script>
+</html>

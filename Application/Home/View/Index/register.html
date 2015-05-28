@@ -1,0 +1,32 @@
+<include file="header" />
+
+	<div id="log" class="W">
+		<div class="l_tip kuang">
+			<p style="margin-top:20px;">看那个逗比又在副本挂掉了</p>
+			<p>看那个土豪洗了好多次都是耀光</p>
+			<p>看那里有个萌妹子</p>
+			<p>不要看了，我们都在等你加入。。。</p>
+		</div>
+		<div class="l_main kuang">
+			<if condition="$errorTip"><span class="tips_z">{$errorTip}</span></if>
+			<form action="{:U('registerPost')}" method="post">
+				<div class="lm_name lm_kuang">
+					<input type="text" name="username" placeholder="用户名">
+				</div>
+				<div class="lm_key lm_kuang">
+					<input type="password" name="pwd" placeholder="密码">
+				</div>
+				<div class="lm_key lm_kuang">
+					<input type="password" name="repwd" placeholder="确认密码">
+				</div>
+				<div>
+					<input class="lm_a" type="submit" value="注册">
+				</div>
+			</form>
+			<div >
+				<a href="" class="lm_zc">还没有账号么?赶紧注册一个吧</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
